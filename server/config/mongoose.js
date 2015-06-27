@@ -1,3 +1,4 @@
+console.log('inside config/mongoose.js');
 var mongoose = require('mongoose');
 var fs = require('fs');
 

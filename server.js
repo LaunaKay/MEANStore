@@ -6,6 +6,10 @@ io = require('socket.io').listen(server)
 
 // Body Parser
 var bodyParser = require('body-parser')
+app.use(bodyParser.urlencoded(
+    {
+        extended: true
+    }));
 app.use(bodyParser.json())
 
 // Session
@@ -17,7 +21,7 @@ app.use(session({
 }))
 
 
-app.use(express.static(__dirname + '/client'))
+app.use(express.static(__dirname + '/client'));
 
 // Mongoose
 require('./server/config/mongoose.js');

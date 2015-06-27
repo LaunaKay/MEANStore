@@ -8,4 +8,4 @@ var ProductSchema = new mongoose.Schema({
   order: [{order_id:String}]
 });
 
-mongoose.model('Product', ProductSchema);
+mongoose.model('product', ProductSchema);
