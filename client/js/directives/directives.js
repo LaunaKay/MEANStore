@@ -1,5 +1,4 @@
-app
-
+msAppModule
 .directive('colors', function(){
 	return {
         restrict: "AE",

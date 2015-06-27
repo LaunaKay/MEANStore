@@ -17,69 +17,6 @@
 	<script type="text/javascript" src="/js/directives/directives.js"></script>
 	<script type="text/javascript" src="/js/partialRoutes.js"></script>
 	<script type="text/javascript" src="/js/sockets.js"></script>
-
-<!====================================================>
-	<script type='text/javascript'>
-		console.log('inside script html');
-
-		var msAppModule = angular.module('msApp', ['ngRoute']);
-
-//SET ROUTES FOR VIEWS TO DISPLAY
-	    msAppModule.config(function ($routeProvider)
-	    {
-	        $routeProvider
-	            .when('/',
-	            {
-	                templateUrl: 'partials/dashboard.html'
-	            })
-	            .when('/products',
-	            {
-	                templateUrl:'partials/products.html'
-	            })
-	            .when('/orders',
-	            {
-	            	templateUrl:'partials/orders.html'
-	            })
-	            .when('/customers',
-	            {
-	            	templateUrl:'partials/customers.html'
-	            })
-	            .when('/settings',
-	            {
-	            	templateUrl:'partials/settings.html'
-	            })
-	            .otherwise(
-	            {
-	                redirectTo: '/'
-	            });
-	    });
-
-	    msAppModule.controller('products', function($scope, ProductFactory)
-	    {
-	    	ProductFactory.getProducts(function(data)
-	    	{
-	    		$scope.products = data;
-	    	})
-	    })
-	    msAppModule.factory('ProductFactory', function($http)
-	    {
-	    	var factory = {};
-	    	var products = [];
-
-	    	factory.getProducts = function(cbProducts)
-	    	{
-	    		$http.get('/products').success(function(output)
-	    		{
-	    			products = output;
-	    			cbProducts(products);
-	    		})
-	    	}
-	    	return factory;
-	    });
-</script>
-<!====================================================>
-
-
 </head>
 <body ng-app="msApp">
 	<div class="container">

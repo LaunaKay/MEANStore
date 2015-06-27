@@ -1,12 +1,15 @@
-app
-.factory('UserFactory', function($http) {
-	var factory = {};
+msAppModule.factory('ProductFactory', function($http)
+    {
+    	var factory = {};
+    	var products = [];
 
-	factory.create = function(newUser, callback){
-		$http.post('/users', newUser).success(function(server_response){
-			callback(server_response);
-		})
-	}
-	
-	return factory;
-})
+    	factory.getProducts = function(cbProducts)
+    	{
+    		$http.get('/products').success(function(output)
+    		{
+    			products = output;
+    			cbProducts(products);
+    		})
+    	}
+    	return factory;
+    });
